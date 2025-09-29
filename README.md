@@ -1,131 +1,58 @@
-# 📈 **Cracking the Code of Growth: A Data Analytics Case Study of Alex The Analyst’s YouTube Channel**
+# **YouTube Channel Data Collection with Python & PostgreSQL**
 
-This project is an end-to-end data analytics case study analyzing the performance and content strategy of [Alex The Analyst](https://www.youtube.com/c/AlexTheAnalyst)'s YouTube channel. The pipeline of this project includes data collection, storage, analysis, and visualization.
+## 1. Project Overview
 
----
+This project demonstrates how to collect data from the YouTube Data API, clean and structure it using Python, and store it in PostgreSQL for further analysis.
+The selected channel is [Alex The Analyst](https://www.youtube.com/c/AlexTheAnalyst)'s YouTube channel and the script can easily be extended to gather data from multiple YouTube channels. The pipeline of this project includes data collection, cleaning and.
 
-## 🎯 Project Objective
-
-The goal is to explore and understand performance patterns across Alex The Analyst’s YouTube videos in order to identify what factors contribute to high engagement, and guide data-driven content decisions.
-
-## Key Questions Driving the Analysis
-
-- Which days and times are best for publishing videos?
-- How does video length affect performance?
-- What are the engagement patterns based on video tags?
-
-This case study showcases data analyst competencies including SQL, Python, PostgreSQL, and Tableau.
+**Purpose**: emphasize pipeline skills.
 
 ---
 
-## 🛠️ Tools & Technologies
+## 2. Tools & Technologies
 
-| Tool         | Purpose                             |
-|--------------|-------------------------------------|
-| Python       | Data collection via YouTube API     |
-| PostgreSQL   | Data storage and querying           |
-| SQL          | Data wrangling and analysis         |
-| Tableau      | Data visualization and dashboards   |
-| Google API   | Source for YouTube channel data     |
+| Tool            | Purpose                                          |
+|-----------------|--------------------------------------------------|
+| Python          | Data collection via YouTube API and data cleaning|
+| PostgreSQL      | Data storage                                     |
+| SQL             | Database schema                                         |
+| Jupyter Notebook| Source for YouTube channel data                  |
 
----
+## 3. Workflow
 
-## 📁 Project Structure
+### 1. API Setup
 
-```bash
-📂 alex-the-analyst-youtube-analysis
-├── 📄 README.md
-├── 📄 requirements.txt  
-├── 📄 data_collection.ipynb
-├── 📂 sql_queries/
-│ └── database_schema.sql
-│ └── data_cleaning.sql 
-│ └── feature_engineering.sql
-├── 📂 visualizations/
-│ └── alex_channel_dashboard.twbx
-├── 📂 data/
-│ └── videos.csv
-│ └── videos_featured.csv
-└── 📄 eda.ipynb
-```
+- Connect to the YouTube Data API with API key.
 
----
+- Define functions to fetch channel, video, and comment metadata.
 
-## 🔄 Data Pipeline Overview
+### 2. Data Collection
 
-1. **Data Collection**:  
-   - Used the YouTube Data API v3 to extract video-level data from Alex The Analyst’s channel.
-   - Collected metadata like titles, publish dates, views, likes, comments, and more.
+- Collect key fields:
+  - Video ID, Title, Published Date
+  - Views, Likes, Comments, Duration
+  - Tags, Channel Stats
+- Save results as Pandas DataFrame.
 
-2. **Data Storage**:  
-   - Stored structured data in a PostgreSQL database.
-   - Created tables: `raw_videos`, `videos_cleaned`, `videos_featured`
+### 3. Data Cleaning
 
-3. **Data Cleaning & Feature Engineering**:
-   - Data cleaning:
-      - Remove duplicates and nulls
-      - trim whitespace in text columns
-      - Fix data type
-   - Feature engineering:
-      - Convert `published_at` from UTC to time zone US/EST
-      - Extract:
-         - published year
-         - published month
-         - published quarter
-         - published weekday
-         - published hour
-         - published time-of-day
-      - Bucket published hours into time-of-day categories
+- Remove duplicates and nulls
+- Trim whitespace in text columns
+- Fix data type
 
-4. **Data Analysis**:  
-   - Metrics normalization
-   - Statistical analysis
-   - Engagement rate trends
-   - Performance by publish day/time
-   - Performance by topic content
+### 4. Data Storage
 
-5. **Data Visualization**:  
-   - Built an interactive dashboard in Tableau to display:
-     - Channel growth over time
-     - Top-performing videos
-     - Publishing frequency vs. performance
-     - Engagement trends
+- Store dataset in PostgreSQL and CSV
 
 ---
 
-## 📈 Key Insights
-
-- Videos on portfolio projects and career tips consistently outperform technical tutorials.
-- The optimal posting days for highest views are Tuesday and Thursday.
-- Engagement rate increases when video length is between 8–12 minutes.
-- Weekly posting frequency correlates with steady subscriber growth.
-
----
-
-## 📊 Dashboard Preview
-
-> 📍[Click here to view the Tableau Dashboard (if published)](https://public.tableau.com/)
-
-![Dashboard Sample](visualizations/dashboard_screenshot.png)
-
----
-
-## 🧠 Skills Demonstrated
-
-- Data wrangling and transformation in SQL
-- REST API integration using Python
-- Relational database design
-- Dashboard creation with business storytelling
-
----
-
-## 📌 How to Run This Project Locally
+## How to Run This Project Locally
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/LiLuo086/alex-the-analyst-youtube-analysis.git
-   cd alex-the-analyst-youtube-analysis
+   git clone https://github.com/LiLuo086/youTube-channel-data-collection-with-Python-PostgreSQL.git
+   cd youTube-channel-data-collection-with-Python-PostgreSQL
    ```
 
 2. Install dependencies:
@@ -134,26 +61,8 @@ This case study showcases data analyst competencies including SQL, Python, Postg
    pip install -r requirements.txt
    ```
 
-3. Set your YouTube API Key in youtube_data_scraper.py.
+3. Set your YouTube API Key in data_collection.ipynb.
 
-4. Run the data collection script:
-
-   ```bash
-   python youtube_data_scraper.py
-   ```
+4. Run the data collection jupyter notebook: data_collection.ipynb
 
 5. Import database_schema.sql into your PostgreSQL DB and insert the data.
-
-6. Use sql_queries/eda_queries.sql to begin analysis.
-
-7. Open the Tableau workbook in visualizations/ to explore the dashboard.
-
-## 📚 Credits
-
-Alex The Analyst for publicly available educational content and inspiration.
-
-Google Developers for the YouTube Data API v3.
-
-## 🔒 Disclaimer
-
-This project is for educational and portfolio purposes only. No commercial use or distribution of data.

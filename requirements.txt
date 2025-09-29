@@ -1,5 +1,8 @@
+# Requirements for the project
 google-api-python-client==2.123.0
 pandas==2.2.2
+seaborn==0.13.2
+matplotlib==3.9.0
 psycopg2-binary==2.9.9
 sqlalchemy==2.0.30
 python-dotenv==1.0.1
