@@ -2,7 +2,7 @@
 
 ## 1. Project Overview
 
-This project demonstrates how to collect data from the YouTube Data API, clean and structure it using Python, and store it in PostgreSQL for further analysis.
+This project demonstrates how to collect data from the YouTube Data API and structure it using Python, and store it in PostgreSQL for further analysis.
 The selected channel is [Alex The Analyst](https://www.youtube.com/c/AlexTheAnalyst)'s YouTube channel and the script can easily be extended to gather data from multiple YouTube channels. The pipeline of this project includes data collection, cleaning and.
 
 **Purpose**: emphasize pipeline skills.
@@ -11,12 +11,12 @@ The selected channel is [Alex The Analyst](https://www.youtube.com/c/AlexTheAnal
 
 ## 2. Tools & Technologies
 
-| Tool            | Purpose                                          |
-|-----------------|--------------------------------------------------|
-| Python          | Data collection via YouTube API and data cleaning|
-| PostgreSQL      | Data storage                                     |
-| SQL             | Database schema                                         |
-| Jupyter Notebook| Source for YouTube channel data                  |
+| Tool            | Purpose                         |
+|-----------------|---------------------------------|
+| Python          | Data collection via YouTube API |
+| PostgreSQL      | Data storage                    |
+| SQL             | Database schema                 |
+| Jupyter Notebook| Source for YouTube channel data |
 
 ## 3. Workflow
 
@@ -28,19 +28,12 @@ The selected channel is [Alex The Analyst](https://www.youtube.com/c/AlexTheAnal
 
 ### 2. Data Collection
 
-- Collect key fields:
-  - Video ID, Title, Published Date
-  - Views, Likes, Comments, Duration
-  - Tags, Channel Stats
+- Collect key fields:´
+  - Channel statistics: `channel_id`, `channel_playlist_id`, `subscribers`, `views`, `total_videos`
+  - Video statistics: `video_id`, `title`, `published_at`, `views`, `likes`, `comments`, `duration`, `tags`
 - Save results as Pandas DataFrame.
 
-### 3. Data Cleaning
-
-- Remove duplicates and nulls
-- Trim whitespace in text columns
-- Fix data type
-
-### 4. Data Storage
+### 3. Data Storage
 
 - Store dataset in PostgreSQL and CSV
 
@@ -61,8 +54,8 @@ The selected channel is [Alex The Analyst](https://www.youtube.com/c/AlexTheAnal
    pip install -r requirements.txt
    ```
 
-3. Set your YouTube API Key in data_collection.ipynb.
+3. Set your YouTube API Key in `YT_API_KEY.txt` and connect it in `data_collection.ipynb`.
 
-4. Run the data collection jupyter notebook: data_collection.ipynb
+4. Run the data collection jupyter notebook: `data_collection.ipynb`
 
-5. Import database_schema.sql into your PostgreSQL DB and insert the data.
+5. Import `database_schema.sql` into your PostgreSQL DB and insert the data by running `data_storage.ipynb`.
