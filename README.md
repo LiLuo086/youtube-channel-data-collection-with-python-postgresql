@@ -3,7 +3,7 @@
 ## 1. Project Overview
 
 This project demonstrates how to collect data from the YouTube Data API and structure it using Python, and store it in PostgreSQL for further analysis.
-The selected channel is [Alex The Analyst](https://www.youtube.com/c/AlexTheAnalyst)'s YouTube channel and the script can easily be extended to gather data from multiple YouTube channels. The pipeline of this project includes data collection, cleaning and.
+The selected channel is [Alex The Analyst](https://www.youtube.com/c/AlexTheAnalyst)'s YouTube channel and the script can easily be extended to gather data from multiple YouTube channels. The pipeline of this project includes data collection and storage.
 
 **Purpose**: emphasize pipeline skills.
 
