@@ -2,7 +2,7 @@ CREATE TABLE channels (
     channel_id VARCHAR PRIMARY KEY,
     channel_name TEXT NOT NULL,
     description TEXT,
-    subscribers INT
+    subscribers INT,
     views INT,
     total_videos INT,
     channel_playlist_id VARCHAR    
@@ -15,8 +15,8 @@ CREATE TABLE videos (
     views INT,
     likes INT,
     comments INT,
-    tags TEXT[],
+    tags TEXT,
     channel_id VARCHAR NOT NULL,
-    duration_seconds INTERVAL,
+    duration_seconds INT,
     FOREIGN KEY (channel_id) REFERENCES channels(channel_id)
 );
